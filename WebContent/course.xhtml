@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+<f:metadata>
+	<f:event type="preRenderView"
+		listener="#{courseController.loadCourses()}" />
+</f:metadata>
+
+<h:head>
+	<title>Course List</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+</h:head>
+
+<h:body>
+<h:form>
+	<br />
+	<h:button value="Add Course" outcome="addcourse" />
+
+	<h:dataTable value="#{courseController.courses}" var="course"
+		styleClass="table" headerClass="table-header"
+		rowClasses="table-odd-row,table-even-row">
+		<h:column>
+			<f:facet name="header">Course ID</f:facet>
+ 	  #{course.cid}
+	</h:column>
+		<h:column>
+			<f:facet name="header">Course Name</f:facet>
+ 	  #{course.desc}
+	</h:column>
+
+		<h:column>
+			<f:facet name="header">Course Duration</f:facet>
+ 	  #{course.dur}
+	</h:column>
+
+		<h:column>
+			<h:commandLink
+				onclick="if (! confirm('Do you want to Delete this Course?')) return false"
+				value="Delete" action="#{courseController.deleteCourse(course)}">
+				
+				</h:commandLink>
+		</h:column>
+
+
+	</h:dataTable>
+	</h:form>
+
+</h:body>
+</html>
