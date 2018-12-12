@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+  
+  <h:head>
+    <title>New Student</title>
+  </h:head>
+  
+  <h:body>
+  	<h3>Student Details</h3>
+    <h:form>
+    <h:message globalOnly="true" styleClass="error"/>
+      Student ID: <h:inputText value="#{student.sid}" id="sid" required="true" requiredMessage="Student ID is mandatory"></h:inputText>
+      <br/>
+      <br/>
+      Course ID: <h:inputText value="#{student.cid}" id="cid" required="true" requiredMessage="Student Name is mandatory"> </h:inputText>
+      <br/>
+      <br/>
+      Name: <h:inputText value="#{student.name}" id="name" required="true" requiredMessage="Student Address is mandatory"></h:inputText>     
+      <br/>
+      <br/>
+      Address: <h:inputText value="#{student.add}" id="address" required="true" requiredMessage="Course ID is mandatory"></h:inputText>
+	  <br/>
+      <br/>
+      
+	<h:commandButton value="Add" action="#{studentController.addStudent(student)}" outcome="student"/>
+   </h:form>
+  </h:body>
+</html>

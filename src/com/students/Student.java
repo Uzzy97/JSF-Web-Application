@@ -1,8 +1,10 @@
 package com.students;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean
+@SessionScoped
 public class Student {
 	private String sid;
 	private String cid;
@@ -15,6 +17,10 @@ public class Student {
 		this.cid = cid;
 		this.name = name;
 		this.add = add;
+		
+	}
+	
+	public Student() {
 		
 	}
 
